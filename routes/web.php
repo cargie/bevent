@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/auth/{provider}', 'SocialAuthController@redirectToProvider')
-	->where(['provider' => 'facebook|twitter|google');
-Route::get('/auth/{provider}/callback', 'SocialAuthController@handleProviderCallback')
-	->where(['provider' => 'facebook|twitter|google');
+Route::get('/auth/{provider}', 'Auth\SocialAuthController@redirectToProvider')
+	->where(['provider' => 'facebook|twitter|google']);
+Route::get('/auth/{provider}/callback', 'Auth\SocialAuthController@handleProviderCallback')
+	->where(['provider' => 'facebook|twitter|google']);
