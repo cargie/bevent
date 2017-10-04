@@ -19,3 +19,11 @@ Route::get('/auth/{provider}', 'Auth\SocialAuthController@redirectToProvider')
 	->where(['provider' => 'facebook|twitter|google']);
 Route::get('/auth/{provider}/callback', 'Auth\SocialAuthController@handleProviderCallback')
 	->where(['provider' => 'facebook|twitter|google']);
+
+Route::resource('customers', 'CustomerController');
+
+Route::resource('categories', 'CategoryController');
+
+Route::resource('organizations', 'OrganizationController');
+
+Route::resource('clients', 'ClientController');

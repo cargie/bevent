@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\SocialProvider;
+use Illuminate\Http\Request;
 use Socialite;
 
 class SocialAuthController extends Controller
@@ -16,6 +17,13 @@ class SocialAuthController extends Controller
     public function handleProviderCallback($provider)
     {
         $user = Socialite::driver($provider)->user();
-        dd($user);
+        
+        $social_auth = SocialProvider::firstOrCreate([
+        	'name' => $provider,
+        	'provider_id' => $user->id,
+        ], [
+        	'name' => $provider,
+        	'provider_id' => $user->id,
+        ]);
     }
 }

@@ -15,16 +15,10 @@ class CreateSocialProvidersTable extends Migration
     {
         Schema::create('social_providers', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
+            $table->nullableMorphs("authenticable");
             $table->string('provider_id');
-            $table->string('name');
-            $table->unique(['provider_id','name']);
-            $table->unique(['provider_id','name','id']);
+            $table->string('provider');
             $table->timestamps();
-            $table->foreign('user_id')
-                ->on('users')->references('id')
-                ->onDelete('restrict')
-                ->onUpdate('cascade');
         });
     }
 

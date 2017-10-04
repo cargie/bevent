@@ -37,7 +37,7 @@ return [
 
     'facebook' => [
         'client_id' => env('FACEBOOK_APP_ID'),
-        'client_secret' => env('FACEBOOK_SECRET'),
-        'redirect' => env('FACEBOOK_REDIRECT', 'http://bevent.dev/auth/facebook/callback')
+        'client_secret' => env('FACEBOOK_APP_SECRET'),
+        'redirect' => env('FACEBOOK_APP_REDIRECT', 'http://bevent.dev/auth/facebook/callback')
     ],
 ];
